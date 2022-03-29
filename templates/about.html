@@ -1,0 +1,20 @@
+{% extends "base.html" %} <!-- You need to make sure syntax for this is correct or it will show on site-->
+
+{% block content %} 
+<h1>About page</h1>
+<p>
+    {{my_text|capfirst}},{{my_number}} <!-- You can stack filters for example {{my_text|capfirst|upper}}-->
+    {{my_list}}                        <!-- will captatilize the first letter, and make the rest uppercase as well-->
+</p>
+
+<ul>
+    {% for i in my_list %}
+        {% if i == 123 %}
+            <li> Item {{forloop.counter}} - {{i|add:30}}</li>
+        {%else%}
+            <li> Item {{forloop.counter}} - {{i}}</li>
+        {% endif %}
+    {% endfor %}
+</ul>
+
+{% endblock content %}
